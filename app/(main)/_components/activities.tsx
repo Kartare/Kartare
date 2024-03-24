@@ -8,10 +8,10 @@ const Activities = ({ activities }: { activities: Activity[] }) => {
             {activities.length === 0 && (
                 <span>No activities planned</span>
             )}
-            
+
             {activities.map((activity) => {
                 return (
-                    <ActivityListItem activity={activity} />
+                    <ActivityListItem key={activity.id} activity={activity} />
                 )
             })}
         </div>
