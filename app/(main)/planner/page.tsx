@@ -15,9 +15,9 @@ const PlannerPage = () => {
         }), []);
 
     return (
-        <div className="grid grid-cols-2 gap-0 h-[calc(100%-4rem)]">
+        <div className="grid grid-cols-2 gap-0 h-full">
             <Itinerary/>
-            <div className="z-0 h-[calc(100%-4rem)]">
+            <div className="z-0 h-[calc(100vh-4rem-1px)]">
                 <Map />
             </div>
         </div>
