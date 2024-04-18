@@ -3,16 +3,13 @@
 ### Frameworks
 
 - [Next.js](https://nextjs.org/) – React framework for building performant apps with the best developer experience
-- [Clerk](https://clerk.com/) – Handle user authentication with ease with providers like Google, Twitter, GitHub, etc.
-- [Drizzle ORM](https://orm.drizzle.team/) – TypeScript ORM that feels like SPA with SSR
-- [React Email](https://react.email/) – Versatile email framework for efficient and flexible email development
+- [Kinde](https://kinde.com/) – Handle user authentication with ease with providers like Google, Twitter, GitHub, etc.
 
 ### Platforms
 
-- [Vercel](https://vercel.com/) – Easily preview & deploy changes with git
-- [PlanetScale](https://planetscale.com/) – A cutting-edge database platform for seamless, scalable data management
-- [Resend](https://resend.com/) – A powerful email framework for streamlined email development
-- [Stripe](https://stripe.com) - Payments
+- [Netlify](https://netlify.com/) – Deploy changes from GitHub
+- [Azure SQL](https://portal.azure.com/) – Database hosted on Azure
+- [Lemon Squeezy](https://lemonsqueezy.com) - Payment provider
 
 ### UI
 
