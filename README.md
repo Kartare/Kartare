@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Tech Stack + Features
 
-## Getting Started
+### Frameworks
 
-First, run the development server:
+- [Next.js](https://nextjs.org/) – React framework for building performant apps with the best developer experience
+- [Clerk](https://clerk.com/) – Handle user authentication with ease with providers like Google, Twitter, GitHub, etc.
+- [Drizzle ORM](https://orm.drizzle.team/) – TypeScript ORM that feels like SPA with SSR
+- [React Email](https://react.email/) – Versatile email framework for efficient and flexible email development
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Platforms
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Vercel](https://vercel.com/) – Easily preview & deploy changes with git
+- [PlanetScale](https://planetscale.com/) – A cutting-edge database platform for seamless, scalable data management
+- [Resend](https://resend.com/) – A powerful email framework for streamlined email development
+- [Stripe](https://stripe.com) - Payments
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### UI
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework for rapid UI development
+- [Shadcn/ui](https://ui.shadcn.com/) – Re-usable components built using Radix UI and Tailwind CSS
+- [Framer Motion](https://framer.com/motion) – Motion library for React to animate components with ease
+- [Lucide](https://lucide.dev/) – Beautifully simple, pixel-perfect icons
+- [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) – Optimize custom fonts and remove external network requests for improved performance
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+We love our contributors! Here's how you can contribute:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Open an issue](https://github.com/kartare/kartare/issues) if you believe you've encountered a bug.
+- Make a [pull request](https://github.com/kartare/kartare/pull) to add new features/make quality-of-life improvements/fix bugs.
