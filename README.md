@@ -1,3 +1,7 @@
+# Kartare
+
+An AI augmented roadtrip planner.
+
 ## Tech Stack + Features
 
 ### Frameworks
