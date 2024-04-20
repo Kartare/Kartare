@@ -1,17 +1,32 @@
-import { LatLng } from "leaflet";
-import dynamic from "next/dynamic";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { LatLng, marker } from "leaflet";
+import { MapContainer, Marker, Popup, TileLayer, useMapEvents } from "react-leaflet";
 
 import 'leaflet/dist/leaflet.css';
 import "leaflet-defaulticon-compatibility"
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css"
 import { Day } from "@/app/models/day";
+import { Button } from "@/components/ui/button";
 
 const Map = ({ days }: { days: Day[] }) => {
     //const { position, zoom } = props
     console.log(days)
     const position = new LatLng(52.21485365, 5.47814632396509);
     const zoom = 5;
+
+    const LocationFinder = () => {
+        const map = useMapEvents({
+            click(e) {
+                console.log(e.latlng);
+
+                return (
+                    <Marker position={e.latlng}>
+                        <Popup>Test</Popup>
+                    </Marker>
+                )
+            }
+        });
+        return null;
+    }
 
     return (
         <MapContainer center={position} zoom={zoom} style={{ height: "100%", width: "100%" }}>
@@ -29,6 +44,7 @@ const Map = ({ days }: { days: Day[] }) => {
                     </>
                 )
             })}
+            <LocationFinder />
 
         </MapContainer>
     )
