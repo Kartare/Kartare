@@ -1,57 +1,36 @@
-import { Talk } from "@/lib/llm";
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Github } from "lucide-react";
+import Link from "next/link";
 
 export default async function Home() {
 
-  let talk = "";
-  try {
-    talk = await Talk();
-  }
-  catch (e) {
-    console.log(e);
-  }
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+      <header>
+        <h1 className="text-7xl text-center">Kartare</h1>
+        <h2 className="text-2xl mt-10 text-center text-slate-800">AI augmented roadtrip planner</h2>
+        <div className="mt-4 flex justify-center">
+          <Link href="/planner">
+            <Button variant={"outline"}>
+              <ArrowRight width={16} height={16} className="mr-2" />
+              Go to planner
+            </Button>
+          </Link>
         </div>
-      </div>
+      </header>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center w-full lg:text-left">
-        <h2 className="text-2xl">LLM says:</h2>
-        <p>{talk || "No response"}</p>
+      <div className="w-full flex justify-center fixed bottom-4 px-4">
+        <div className="w-full max-w-lg flex flex-row">
+          <div className="w-1/2">
+            Copyright &copy; 2024 &ndash; Kartare
+          </div>
+          <div className="w-1/2">
+            <Link href="https://github.com/kartare/kartare" className="flex items-center" target="_blank">
+              <Github width={16} height={16} className="mr-2" />
+              Contribute via GitHub
+            </Link>
+          </div>
+        </div>
       </div>
     </main>
   );
