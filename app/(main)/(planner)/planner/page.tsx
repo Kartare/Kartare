@@ -65,7 +65,7 @@ const PlannerPage = () => {
                 <Map days={days} />
             </div>
             <Button className="fixed bottom-6 right-6" variant={"rounded"}>
-                <PlusIcon width={16} height={16} color="white" />
+                <PlusIcon width={24} height={24} />
             </Button>
         </div>
     )
