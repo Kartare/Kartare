@@ -9,7 +9,7 @@ export default async function Home() {
       <header>
         <h1 className="text-7xl text-center">Kartare</h1>
         <h2 className="text-2xl mt-10 text-center text-slate-800">AI augmented roadtrip planner</h2>
-        {/* <div className="mt-6 flex justify-center">
+        <div className="mt-6 flex justify-center">
           <Link href="/planner">
             <Button variant={"outline"}>
               <ArrowRight width={16} height={16} className="mr-2" />
@@ -19,7 +19,7 @@ export default async function Home() {
         </div>
         <div className="mt-2 flex justify-center">
           <p className="italic text-sm">Planner is currently in <u>static</u> mode.</p>
-        </div> */}
+        </div>
       </header>
 
       <div className="w-full flex justify-center fixed bottom-4 px-4">

@@ -1,6 +1,6 @@
-import { ChatSession, CompletionService } from "langxlang";
+import { CompletionService } from "langxlang";
 
-const llm = new CompletionService({ gemini: process.env.GEMINI!, openai: "" });
+const llm = new CompletionService({ gemini: process.env.GOOGLE_GEMINI_API_KEY!, openai: "" });
 
 export async function Talk(): Promise<string> {
 
