@@ -4,6 +4,8 @@ import { useMemo } from "react";
 import Itinerary from "../_components/Itinerary";
 import dynamic from "next/dynamic";
 import { Day } from "@/app/models/day";
+import { Button } from "@/components/ui/button";
+import { PlusIcon } from "lucide-react";
 
 const PlannerPage = () => {
 
@@ -35,6 +37,13 @@ const PlannerPage = () => {
             endLocation: { lat: 58.51878, long: 5.44676 },
             distance: 300,
             activities: []
+        },
+        {
+            number: 4,
+            startLocation: { lat: 58.084816, long: 7.594416 },
+            endLocation: { lat: 58.51878, long: 5.44676 },
+            distance: 400,
+            activities: []
         }
     ]
 
@@ -47,11 +56,17 @@ const PlannerPage = () => {
         }), [days]);
 
     return (
-        <div className="grid grid-cols-2 gap-0 h-full">
-            <Itinerary days={days} />
-            <div className="z-0 h-[calc(100vh-4rem-1px)]">
+        // <div className="grid grid-cols-2 lg:grid- gap-0 h-full">
+        <div className="flex flex-wrap h-full">
+            <div className="lg:w-1/3 w-1/2 overflow-hidden h-[calc(100vh-4rem-1px)]">
+                <Itinerary days={days} />
+            </div>
+            <div className="z-0 h-[calc(100vh-4rem-1px)] lg:w-2/3 w-1/2">
                 <Map days={days} />
             </div>
+            <Button className="fixed bottom-6 right-6" variant={"rounded"}>
+                <PlusIcon width={16} height={16} color="white" />
+            </Button>
         </div>
     )
 }
