@@ -5,9 +5,7 @@ import Itinerary from "../_components/Itinerary";
 import dynamic from "next/dynamic";
 import { Day } from "@/app/models/day";
 
-
 const PlannerPage = () => {
-
 
     const days: Day[] = [
         {
