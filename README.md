@@ -12,7 +12,7 @@ An AI augmented roadtrip planner.
 ### Platforms
 
 - [Netlify](https://netlify.com/) – Deploy changes from GitHub
-- [Azure SQL](https://portal.azure.com/) – Database hosted on Azure
+- [Neon.tech](https://neon.tech/) – Database platform for seamless, scalable data management
 - [Lemon Squeezy](https://lemonsqueezy.com) - Payment provider
 
 ### UI
