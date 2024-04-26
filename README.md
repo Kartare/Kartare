@@ -2,6 +2,11 @@
 
 An AI augmented roadtrip planner.
 
+## Support development
+
+[![Github-sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/dickwolff) &nbsp;
+[![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/dickw0lff) 
+
 ## Tech Stack + Features
 
 ### Frameworks
@@ -12,7 +17,7 @@ An AI augmented roadtrip planner.
 ### Platforms
 
 - [Netlify](https://netlify.com/) – Deploy changes from GitHub
-- [Azure SQL](https://portal.azure.com/) – Database hosted on Azure
+- [Neon.tech](https://neon.tech/) – Database platform for seamless, scalable data management
 - [Lemon Squeezy](https://lemonsqueezy.com) - Payment provider
 
 ### UI
