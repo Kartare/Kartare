@@ -7,7 +7,7 @@ import { Day } from "@/app/models/day";
 import { Button } from "@/components/ui/button";
 import { PlusIcon } from "lucide-react";
 
-const PlannerPage = () => {
+export default async () => {
 
     const days: Day[] = [
         {
@@ -70,5 +70,3 @@ const PlannerPage = () => {
         </div>
     )
 }
-
-export default PlannerPage;

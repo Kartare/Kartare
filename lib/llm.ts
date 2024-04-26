@@ -2,7 +2,7 @@ import { CompletionService } from "langxlang";
 
 const llm = new CompletionService({ gemini: process.env.GOOGLE_GEMINI_API_KEY!, openai: "" });
 
-export async function Talk(): Promise<string> {
+export async function ConstructTrip(destination: string, duration: number): Promise<string> {
 
   const response = await llm.requestCompletion(
     'gemini-1.0-pro',         //  Model name
