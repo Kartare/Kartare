@@ -16,7 +16,8 @@ export async function ConstructTrip(destination: string, duration: number): Prom
   const days: Day[] = [];
 
   response.forEach((cr) => {
-
+    console.log("[LLM] completion response", { cr: cr });
+    
     if (cr.text.startsWith("**")) {
 
       days.push({
