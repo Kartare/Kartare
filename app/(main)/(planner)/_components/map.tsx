@@ -34,11 +34,11 @@ const Map = ({ days }: { days: Day[] }) => {
             {days.map((day) => {
                 return (
                     <>
-                        <Marker position={new LatLng(day.startLocation.lat, day.startLocation.long)}></Marker>
-                        <Marker position={new LatLng(day.endLocation.lat, day.endLocation.long)}></Marker>
+                        <Marker position={new LatLng(day.startLocation!.lat, day.startLocation!.long)}></Marker>
+                        <Marker position={new LatLng(day.endLocation!.lat, day.endLocation!.long)}></Marker>
                         {day.activities.map((activity) => {
                             return (
-                                <Marker key={activity.id} position={new LatLng(activity.location.lat, activity.location.long)}></Marker>
+                                <Marker key={activity.id} position={new LatLng(activity.location!.lat, activity.location!.long)}></Marker>
                             )
                         })}
                     </>
