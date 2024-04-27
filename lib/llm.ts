@@ -10,9 +10,11 @@ export async function ConstructTrip(destination: string, duration: number): Prom
     'You are a helpful travel assisant\nYou will be asked to give an itinerary for a trip, containing a destination and trip duration\nReturn a bullet list for each day, and for each day a bullet list with activities that can be done there.', //  System prompt 
     `Generate an itinerary for a trip to ${destination} for ${duration} days`  //  User prompt
   )
+  log.info("[LLM] llm response", { response: response });
+  
   const result = response.map(o => o.text).join(', ');
 
-  log.info("[LLM]", { result: result });
+  log.info("[LLM] stringified", { result: result });
   console.log(result);
 
   return result;
