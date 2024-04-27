@@ -4,7 +4,7 @@ import { Day } from "@/app/models/day";
 
 const llm = new CompletionService({ gemini: process.env.GOOGLE_GEMINI_API_KEY!, openai: "" });
 
-export async function ConstructTrip(destination: string, duration: number): Promise<Day[]> {
+export async function ConstructTrip(destination: string, duration: number, travelMode?: string): Promise<Day[]> {
 
   const response = await llm.requestCompletion(
     'gemini-1.0-pro',         //  Model name
@@ -29,7 +29,7 @@ export async function ConstructTrip(destination: string, duration: number): Prom
     else if (line != "") {
       const activity = line.substring(2);
       days[days.length - 1].activities.push({
-        id: response.indexOf(cr),
+        id: cr.text.indexOf(line),
         name: activity
       })
     }
