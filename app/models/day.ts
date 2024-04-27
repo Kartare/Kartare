@@ -4,7 +4,7 @@ import { Location } from "./location";
 export interface Day {
     number: Number;
     activities: Activity[]
-    startLocation: Location;
-    endLocation: Location;
-    distance: number;
+    startLocation?: Location;
+    endLocation?: Location;
+    distance?: number;
 }

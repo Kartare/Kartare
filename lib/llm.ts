@@ -1,9 +1,10 @@
 import { CompletionService } from "langxlang";
 import { log } from "@logtail/next";
+import { Day } from "@/app/models/day";
 
 const llm = new CompletionService({ gemini: process.env.GOOGLE_GEMINI_API_KEY!, openai: "" });
 
-export async function ConstructTrip(destination: string, duration: number): Promise<string> {
+export async function ConstructTrip(destination: string, duration: number): Promise<Day[]> {
 
   const response = await llm.requestCompletion(
     'gemini-1.0-pro',         //  Model name
@@ -11,11 +12,29 @@ export async function ConstructTrip(destination: string, duration: number): Prom
     `Generate an itinerary for a trip to ${destination} for ${duration} days`  //  User prompt
   )
   log.info("[LLM] llm response", { response: response });
-  
-  const result = response.map(o => o.text).join(', ');
 
-  log.info("[LLM] stringified", { result: result });
-  console.log(result);
+  const days: Day[] = [];
 
-  return result;
+  response.forEach((cr) => {
+
+    if (cr.text.startsWith("**")) {
+
+      days.push({
+        number: parseFloat(cr.text.match(/\d+/)![0]),
+        activities: []
+      });
+    }
+    else {
+      const activity = cr.text.substring(2);
+      days[days.length - 1].activities.push({
+        id: response.indexOf(cr),
+        name: activity
+      })
+    }
+  });
+
+  log.info("[LLM] objectified", { days: days });
+  console.log(days);
+
+  return days;
 }
