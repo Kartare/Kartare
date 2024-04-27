@@ -15,18 +15,19 @@ export async function ConstructTrip(destination: string, duration: number): Prom
 
   const days: Day[] = [];
 
-  response.forEach((cr) => {
-    console.log("[LLM] completion response", { cr: cr });
-    
-    if (cr.text.startsWith("**")) {
+  const cr = response[0];
 
+  cr.text.split('\n').forEach((line) => {
+    console.log("[LLM] completion response", { line: line });
+
+    if (line.startsWith("**")) {
       days.push({
-        number: parseFloat(cr.text.match(/\d+/)![0]),
+        number: parseFloat(line.match(/\d+/)![0]),
         activities: []
       });
     }
-    else {
-      const activity = cr.text.substring(2);
+    else if (line != "") {
+      const activity = line.substring(2);
       days[days.length - 1].activities.push({
         id: response.indexOf(cr),
         name: activity
