@@ -46,8 +46,7 @@ export default function PlannerStep1() {
             console.log(response)
         }
         catch (e) {
-            console.log(e);
-            setError((e as AxiosError).message);
+            setError(`${(e as AxiosError).response?.data}`);
         }
     }
 

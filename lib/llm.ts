@@ -1,4 +1,5 @@
 import { CompletionService } from "langxlang";
+import { log } from "@logtail/next";
 
 const llm = new CompletionService({ gemini: process.env.GOOGLE_GEMINI_API_KEY!, openai: "" });
 
@@ -11,6 +12,7 @@ export async function ConstructTrip(destination: string, duration: number): Prom
   )
   const result = response.map(o => o.text).join(', ');
 
+  log.info("[LLM]", { result: result });
   console.log(result);
 
   return result;
