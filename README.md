@@ -24,7 +24,6 @@ An AI augmented roadtrip planner.
 
 - [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework for rapid UI development
 - [Shadcn/ui](https://ui.shadcn.com/) – Re-usable components built using Radix UI and Tailwind CSS
-- [Framer Motion](https://framer.com/motion) – Motion library for React to animate components with ease
 - [Lucide](https://lucide.dev/) – Beautifully simple, pixel-perfect icons
 - [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) – Optimize custom fonts and remove external network requests for improved performance
 
