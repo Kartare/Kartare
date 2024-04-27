@@ -27,7 +27,7 @@ export default async function Home() {
             <Link href="/planner">
               <Button variant={"outline"}>
                 <ArrowRight width={16} height={16} className="mr-2" />
-                Login
+                Go to planner
               </Button>
             </Link>
           )}
