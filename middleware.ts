@@ -5,5 +5,8 @@ export default function middleware(req: any) {
 }
 
 export const config = {
-    matcher: ["/planner"]
+    matcher: [
+        "/planner",
+        "/planner/:path"
+    ]
 };

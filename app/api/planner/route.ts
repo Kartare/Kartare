@@ -17,6 +17,6 @@ export async function POST(req: Request) {
     }
     catch (e) {
         console.error(e);
-        return new NextResponse("Error", { status: 500 })
+        return new NextResponse("Something went wrong with calculation route", { status: 500 })
     }
 }

@@ -7,7 +7,7 @@ import { Day } from "@/app/models/day";
 import { Button } from "@/components/ui/button";
 import { PlusIcon } from "lucide-react";
 
-export default async () => {
+export default function PlannerPage() {
 
     const days: Day[] = [
         {
