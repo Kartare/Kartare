@@ -42,18 +42,19 @@ export async function ConstructTrip(destination: string, duration: number, trave
         // Extract the coords of the location (if present).
         const coordsRegex = /\(([-+]?\d*\.?\d+), ([-+]?\d*\.?\d+)\)/;
         const coords = activity.match(coordsRegex);
-        if (coords?.length == 2) {
+        if (coords?.length == 3) {
           location = {
             lat: parseFloat(coords[1]),
             long: parseFloat(coords[2])
           }
         }
 
+        // Add the activity to the last processed day.
         days[days.length - 1].activities.push({
           id: cr.text.indexOf(line),
-          name: activity,
+          name: activity.replace(/\s?\(.*?\)/, "").trim(),
           location: location
-        })
+        });
       }
     }
   });
