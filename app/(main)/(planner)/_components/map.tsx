@@ -8,7 +8,7 @@ import { Day } from "@/app/models/day";
 import { Button } from "@/components/ui/button";
 
 const Map = ({ days }: { days: Day[] }) => {
-    
+
     console.log(days)
     const center = new LatLng(days[1].startLocation!.lat, days[1].startLocation!.long)
     const zoom = 5;
@@ -35,7 +35,7 @@ const Map = ({ days }: { days: Day[] }) => {
         iconAnchor: [12, 41],
         popupAnchor: [1, -34],
         shadowSize: [41, 41]
-      });
+    });
 
     return (
         <MapContainer center={center} zoom={zoom} style={{ height: "100%", width: "100%" }}>
@@ -43,12 +43,10 @@ const Map = ({ days }: { days: Day[] }) => {
             {days.map((day) => {
                 return (
                     <>
-                        <Marker position={new LatLng(day.startLocation!.lat, day.startLocation!.long)}></Marker>
-                        <Marker position={new LatLng(day.endLocation!.lat, day.endLocation!.long)}></Marker>
+                        {day.startLocation && (<Marker position={new LatLng(day.startLocation.lat, day.startLocation.long)}></Marker>)}
+                        {day.endLocation && (<Marker position={new LatLng(day.endLocation.lat, day.endLocation.long)}></Marker>)}
                         {day.activities.map((activity) => {
-                            return (
-                                <Marker key={activity.id} position={new LatLng(activity.location!.lat, activity.location!.long)} icon={redIcon}></Marker>
-                            )
+                            return (activity.location && (<Marker key={activity.id} position={new LatLng(activity.location.lat, activity.location.long)} icon={redIcon}></Marker>))
                         })}
                     </>
                 )
