@@ -1,6 +1,7 @@
 import { CompletionService } from "langxlang";
 import { log } from "@logtail/next";
 import { Day } from "@/app/models/day";
+import { Location } from "@/app/models/location";
 
 const llm = new CompletionService({ gemini: process.env.GOOGLE_GEMINI_API_KEY!, openai: "" });
 
@@ -12,7 +13,7 @@ export async function ConstructTrip(destination: string, duration: number, trave
     `Generate an itinerary for a trip to ${destination} for ${duration} days`,  //  User prompt
     null,
     {
-      maxTokens: 300,
+      maxTokens: 400,
     }
   )
   log.info("[LLM] llm response", { response: response });
@@ -24,18 +25,36 @@ export async function ConstructTrip(destination: string, duration: number, trave
   cr.text.split('\n').forEach((line) => {
     console.log("[LLM] completion response", { line: line });
 
-    if (line.startsWith("**")) {
+    if (line.startsWith("***")) {
       days.push({
         number: parseFloat(line.match(/\d+/)![0]),
         activities: []
       });
     }
     else if (line != "") {
-      const activity = line.substring(2);
-      days[days.length - 1].activities.push({
-        id: cr.text.indexOf(line),
-        name: activity
-      })
+
+      // Skip day-part annotation (for now)
+      if (!line.startsWith("**")) {
+
+        const activity = line.substring(2);
+        let location: Location | undefined = undefined;
+
+        // Extract the coords of the location (if present).
+        const coordsRegex = /\(([-+]?\d*\.?\d+), ([-+]?\d*\.?\d+)\)/;
+        const coords = activity.match(coordsRegex);
+        if (coords?.length == 2) {
+          location = {
+            lat: parseFloat(coords[1]),
+            long: parseFloat(coords[2])
+          }
+        }
+
+        days[days.length - 1].activities.push({
+          id: cr.text.indexOf(line),
+          name: activity,
+          location: location
+        })
+      }
     }
   });
 
