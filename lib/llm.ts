@@ -9,7 +9,7 @@ export async function ConstructTrip(destination: string, duration: number, trave
 
   const response = await llm.requestCompletion(
     'gemini-1.0-pro',         //  Model name
-    "You are a helpful travel assisant\nYou will be asked to give an itinerary for a trip, containing a destination and trip duration\nReturn a bullet list for each day, and for each day a bullet list with activities that can be done there.\nSuggest a maximum of 4 activities per day. For each activity, include the coordinates of the location (lat, long).\nDivide the day into parts (morning, afternoon, evening). Annotate a day with '***' and parts of the day with '**'.", //  System prompt 
+    "You are a helpful travel assisant\nYou will be asked to give an itinerary for a trip, containing a destination and trip duration\nReturn it in the following format:\n***Day 1***\n**Morning**\n- Activity 1 name (lat, long)\n**Afternoon**\n- Activity 2 name (lat, long)\n**Evening**\n- Activity 3 name (lat, long)\nSuggest a maximum of 4 activities per day. For each activity, include the coordinates of the location (lat, long).", //  System prompt 
     `Generate an itinerary for a trip to ${destination} for ${duration} days`,  //  User prompt
     null,
     {
