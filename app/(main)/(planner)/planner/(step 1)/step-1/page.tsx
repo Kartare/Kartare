@@ -17,6 +17,8 @@ import { Input } from "@/components/ui/input"
 import axios, { Axios, AxiosError } from "axios";
 import { LoaderCircle, Play } from "lucide-react"
 import { useState } from "react"
+import { staticStore } from "@/lib/staticStore"
+import { redirect } from "next/navigation"
 
 const formSchema = z.object({
     destination: z.string().min(2, { message: "Destination is required" }),
@@ -39,11 +41,13 @@ export default function PlannerStep1() {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         setError("");
-        console.log(values)
 
         try {
             const response = await axios.post("/api/planner", values);
-            console.log(response)
+
+            staticStore.days = response.data;
+
+            redirect("/planner");
         }
         catch (e) {
             setError(`${(e as AxiosError).response?.data}`);

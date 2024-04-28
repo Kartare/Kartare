@@ -4,6 +4,6 @@ interface Store {
     days: Day[]
 }
 
-export const store: Store = {
+export const staticStore: Store = {
     days: []
 }
