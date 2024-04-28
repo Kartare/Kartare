@@ -5,12 +5,12 @@ import { Location } from "@/app/models/location";
 
 const llm = new CompletionService({ gemini: process.env.GOOGLE_GEMINI_API_KEY!, openai: "" });
 
-export async function ConstructTrip(destination: string, duration: number, travelMode?: string): Promise<Day[]> {
+export async function ConstructTrip(destination: string, duration: number, tripType?: string): Promise<Day[]> {
 
   const response = await llm.requestCompletion(
     'gemini-1.0-pro',         //  Model name
     "You are a helpful travel assisant\nYou will be asked to give an itinerary for a trip, containing a destination and trip duration\nReturn it in the following format:\n***Day 1***\n**Morning**\n- Activity 1 name (41.9028, 12.4534)\n**Afternoon**\n- Activity 2 name (41.9028, 12.4534)\n**Evening**\n- Activity 3 name (41.9028, 12.4534)\nSuggest a maximum of 4 activities per day. For each activity, include the coordinates of the location (lat, long). When suggesting activities, take into account the distance between them should be reasonable.", //  System prompt 
-    `Generate an itinerary for a trip to ${destination} for ${duration} days`,  //  User prompt
+    `Generate an itinerary for a ${tripType} to ${destination} for ${duration} days`,  //  User prompt
     null,
     {
       maxTokens: 400,

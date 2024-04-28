@@ -19,22 +19,25 @@ import { LoaderCircle, Play } from "lucide-react"
 import { useState } from "react"
 import { staticStore } from "@/lib/staticStore"
 import { useRouter } from "next/navigation"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 const formSchema = z.object({
     destination: z.string().min(2, { message: "Destination is required" }),
     duration: z.string().min(1, { message: "Duration is required" }),
+    type: z.string().optional()
 })
 
 export default function PlannerStep1() {
 
     const router = useRouter();
     const [error, setError] = useState<string>();
-    
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             destination: "",
-            duration: ""
+            duration: "",
+            type: ""
         }
     });
 
@@ -72,7 +75,7 @@ export default function PlannerStep1() {
                                             <Input placeholder="e.g. 'Norway'" {...field} disabled={isSubmitting} />
                                         </FormControl>
                                         <FormDescription>
-                                            The destination of your trip
+                                            The destination of your trip.
                                         </FormDescription>
                                         <FormMessage />
                                     </FormItem>
@@ -88,7 +91,33 @@ export default function PlannerStep1() {
                                             <Input type="number" placeholder="e.g. '12'" {...field} disabled={isSubmitting} />
                                         </FormControl>
                                         <FormDescription>
-                                            The number of days the trip will take
+                                            The number of days the trip will take.
+                                        </FormDescription>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="type"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Trip type</FormLabel>
+                                        <FormControl>
+                                            <Select onValueChange={field.onChange} defaultValue={field.value} disabled={isSubmitting} >
+                                                <FormControl>
+                                                    <SelectTrigger>
+                                                        <SelectValue placeholder="Select a trip type (defaults to citytrip)" />
+                                                    </SelectTrigger>
+                                                </FormControl>
+                                                <SelectContent>
+                                                    <SelectItem value="citytrip">Citytrip</SelectItem>
+                                                    <SelectItem value="roadtrip">Roadtrip</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        </FormControl>
+                                        <FormDescription>
+                                            The type of trip. This will impact the generated itinerary.
                                         </FormDescription>
                                         <FormMessage />
                                     </FormItem>

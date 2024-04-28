@@ -12,9 +12,9 @@ export async function POST(req: Request) {
 
     try {
 
-        const { destination, duration } = await req.json();
+        const { destination, duration, type } = await req.json();
 
-        const route = await ConstructTrip(destination, duration);
+        const route = await ConstructTrip(destination, duration, type || "citytrip");
         console.log(route)
         log.info("[PLANNER] [end]", { route: route });
         return NextResponse.json(route);
