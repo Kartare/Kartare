@@ -8,28 +8,28 @@ import { Day } from "@/app/models/day";
 import { Button } from "@/components/ui/button";
 
 const Map = ({ days }: { days: Day[] }) => {
-    //const { position, zoom } = props
+    
     console.log(days)
-    const position = new LatLng(52.21485365, 5.47814632396509);
+    const center = new LatLng(days[0].startLocation!.lat, days[0].startLocation!.long)
     const zoom = 5;
 
-    const LocationFinder = () => {
-        const map = useMapEvents({
-            click(e) {
-                console.log(e.latlng);
+    // const LocationFinder = () => {
+    //     const map = useMapEvents({
+    //         click(e) {
+    //             console.log(e.latlng);
 
-                return (
-                    <Marker position={e.latlng}>
-                        <Popup>Test</Popup>
-                    </Marker>
-                )
-            }
-        });
-        return null;
-    }
+    //             return (
+    //                 <Marker position={e.latlng}>
+    //                     <Popup>Test</Popup>
+    //                 </Marker>
+    //             )
+    //         }
+    //     });
+    //     return null;
+    // }
 
     return (
-        <MapContainer center={position} zoom={zoom} style={{ height: "100%", width: "100%" }}>
+        <MapContainer center={center} zoom={zoom} style={{ height: "100%", width: "100%" }}>
             <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             {days.map((day) => {
                 return (
@@ -44,7 +44,7 @@ const Map = ({ days }: { days: Day[] }) => {
                     </>
                 )
             })}
-            <LocationFinder />
+            {/* <LocationFinder /> */}
 
         </MapContainer>
     )
