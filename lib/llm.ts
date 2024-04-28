@@ -59,6 +59,13 @@ export async function ConstructTrip(destination: string, duration: number, trave
     }
   });
 
+  // Set start/end locations for each day.
+  for (let dix = 0; dix < days.length; dix++) {
+    let currentDay = days[dix];
+    days[dix].startLocation = currentDay.activities[0].location;
+    days[dix].endLocation = currentDay.activities[currentDay.activities.length - 1].location; days[dix].startLocation = currentDay.activities[0].location;
+  }
+
   log.info("[LLM] objectified", { days: days });
   console.log(days);
 
