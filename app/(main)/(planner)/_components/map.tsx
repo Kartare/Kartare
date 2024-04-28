@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 const Map = ({ days }: { days: Day[] }) => {
     
     console.log(days)
-    const center = new LatLng(days[0].startLocation!.lat, days[0].startLocation!.long)
+    const center = new LatLng(days[1].startLocation!.lat, days[1].startLocation!.long)
     const zoom = 5;
 
     // const LocationFinder = () => {
