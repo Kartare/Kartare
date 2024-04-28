@@ -13,7 +13,7 @@ export async function ConstructTrip(destination: string, duration: number, tripT
     `Generate an itinerary for a ${tripType} to ${destination} for ${duration} days`,  //  User prompt
     null,
     {
-      maxTokens: 450
+      maxTokens: 500
     }
   )
   log.info("[LLM] llm response", { response: response });
