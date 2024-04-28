@@ -18,7 +18,7 @@ import axios, { Axios, AxiosError } from "axios";
 import { LoaderCircle, Play } from "lucide-react"
 import { useState } from "react"
 import { staticStore } from "@/lib/staticStore"
-import { redirect } from "next/navigation"
+import { useRouter } from "next/navigation"
 
 const formSchema = z.object({
     destination: z.string().min(2, { message: "Destination is required" }),
@@ -27,8 +27,9 @@ const formSchema = z.object({
 
 export default function PlannerStep1() {
 
+    const router = useRouter();
     const [error, setError] = useState<string>();
-
+    
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -46,10 +47,11 @@ export default function PlannerStep1() {
             const response = await axios.post("/api/planner", values);
 
             staticStore.days = response.data;
-
-            redirect("/planner");
+            console.log("redirect to planner");
+            router.push("/planner");
         }
         catch (e) {
+            console.log(e)
             setError(`${(e as AxiosError).response?.data}`);
         }
     }
