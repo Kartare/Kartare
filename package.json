@@ -9,15 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.3.4",
-    "@kinde-oss/kinde-auth-nextjs": "^2.2.6",
+    "@hookform/resolvers": "^3.4.2",
+    "@kinde-oss/kinde-auth-nextjs": "^2.2.10",
     "@logtail/next": "^0.1.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
-    "axios": "^1.6.8",
+    "axios": "^1.7.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "langxlang": "^0.7.0",
